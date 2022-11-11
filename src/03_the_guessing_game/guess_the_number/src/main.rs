@@ -7,7 +7,7 @@ fn main() {
     let mut rng = rand::thread_rng();
     let secret_number = rng.gen_range(0..101);
 
-    println!("=================The Guessing Game=================");
+    println!("\n=================The Guessing Game=================\n");
     println!("Enter your number guess (0..100):");
 
     loop {
@@ -20,6 +20,8 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
+
+        println!("You guessed {}", guess);
 
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("{}", "Too small".red()),
